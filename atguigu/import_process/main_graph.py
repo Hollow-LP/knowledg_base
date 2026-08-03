@@ -11,8 +11,8 @@ from atguigu.import_process.nodes.node_pdf_to_md import NodePDFToMD
 from atguigu.import_process.state import ImportGraphState
 from atguigu.tool.json_format_tool import json_format
 from atguigu.tool.logger import logger
-#
-# builder = StateGraph(state_schema=ImportGraphState)
+#32
+# builder = StateGraph(state_schema=Im portGraphState)
 #
 # # def xxx(state:Mystate):
 # #     pass
