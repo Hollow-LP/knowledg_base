@@ -150,7 +150,7 @@ class NodeMDImg(NodeBase):
         minio_client = get_minio_client()
         #幂等性删除这个目录当中的图片
         #1.拿到桶当中这个目录当重点的所有老图片(prefix=upload_dir代表桶下面的目录，不到文件)
-        old_image_list = minio_client.list_objects(bucket_name=MinIoConfig.minio_bucket_name,prefix=upload_dir)
+        old_image_list = minio_client.list_objects(bucket_name=MinIoConfig.minio_bucket_name,prefix=upload_dir,recursive=True)
         #2.调用api批量删除老图片，delete_object_list
         delete_image_list = [DeleteObject(obj.object_name) for obj in old_image_list]
         minio_client.remove_objects(bucket_name=MinIoConfig.minio_bucket_name,objects=delete_image_list)
