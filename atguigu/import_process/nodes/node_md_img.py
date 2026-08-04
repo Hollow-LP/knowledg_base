@@ -153,7 +153,7 @@ class NodeMDImg(NodeBase):
         old_image_list = minio_client.list_objects(bucket_name=MinIoConfig.minio_bucket_name,prefix=upload_dir,recursive=True)
         #2.调用api批量删除老图片，delete_object_list
         delete_image_list = [DeleteObject(obj.object_name) for obj in old_image_list]
-        minio_client.remove_objects(bucket_name=MinIoConfig.minio_bucket_name,objects=delete_image_list)
+        minio_client.remove_objects(bucket_name=MinIoConfig.minio_bucket_name,delete_object_list=delete_image_list)
         image_with_summary_and_url_list = []
         #准备上传老图片
         for image_with_summary in image_with_summary_list:
@@ -175,7 +175,7 @@ class NodeMDImg(NodeBase):
             md_content = pattern.sub(
                 lambda _: f"![{image_with_summary_and_url.get('summary')}]({image_with_summary_and_url.get('url')})",
                 md_content)
-        new_md_path_obj = md_path_obj.parent / str(md_path_obj.stem) + ".md"
+        new_md_path_obj = md_path_obj.parent / f"{md_path_obj.stem}.md"
         with open(new_md_path_obj,"w",encoding="utf-8") as f:
             f.write(md_content)
         return new_md_path_obj,md_content

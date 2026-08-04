@@ -11,10 +11,10 @@ class MineruConfig:
     mineru_base_url = os.getenv('MINERU_BASE_URL')
 
 class LLMconfig:
-    openai_api_key = os.getenv('OPENAI_API_KEY')
+    openai_api_key = os.getenv('OPEN_API_KEY')
     openai_api_base = os.getenv('OPEN_API_BASE_URL')
     llm_default_model = os.getenv('LLM_DEFAULT_MODEL')
-    llm_default_temperature = os.getenv('LLM_DEFAULT_TEMPERATURE')
+    llm_default_temperature = (os.getenv("LLM_DEFAULT_TEMPERATURE", 0.1))
     vl_model = os.getenv('VL_MODEL')
     item_model = os.getenv('ITEM_MODEL')
 
@@ -24,3 +24,5 @@ class MinIoConfig:
     minio_secret_key = os.getenv('MINIO_SECRET_KEY')
     minio_bucket_name = os.getenv('MINIO_BUCKET_NAME')
     minio_img_dir = os.getenv('MINIO_IMG_DIR')
+
+

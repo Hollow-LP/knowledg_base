@@ -34,13 +34,13 @@ def get_minio_client():
                         "Effect": "Allow",
                         "Principal": {"AWS": "*"},
                         "Action": ["s3:GetBucketLocation", "s3:ListBucket"],
-                        "Resource": "arn:aws:s3:::my-bucket",
+                        "Resource": "arn:aws:s3:::knowledge-base",
                     },
                     {
                         "Effect": "Allow",
                         "Principal": {"AWS": "*"},
                         "Action": "s3:GetObject",
-                        "Resource": "arn:aws:s3:::my-bucket/*",
+                        "Resource": "arn:aws:s3:::knowledge-base/*",
                     },
                 ],
             }

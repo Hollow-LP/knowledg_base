@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from atguigu.tool import logger
+from atguigu.tool.logger import logger
 from atguigu.import_process.state import ImportGraphState
 
 
