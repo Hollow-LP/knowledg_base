@@ -1,7 +1,7 @@
 # atguigu/import_process/state.py
 
 from typing import TypedDict
-
+#入口初始化
 class ImportGraphState(TypedDict):
     """
     图的状态定义，包含所有节点产生和消费的数据字段
