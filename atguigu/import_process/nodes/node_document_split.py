@@ -1,6 +1,5 @@
 import re
 from pathlib import Path
-from platform import node
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -58,7 +57,7 @@ class NodeDocumentSplit(NodeBase):
             if match:
                 if not in_code_block:
                     in_code_block = True
-                    maker = match.group(1)
+                    marker = match.group(1)
                     logger.info(f"开始代码块：{marker}")
                 else:
                     if marker == match.group(1):
